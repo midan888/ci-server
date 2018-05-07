@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  vpn:
+    image: jetbrains/teamcity-server
+
+    ports:
+      - "8111:8111"
+
+    volumes:
+      - "./data:/data/teamcity_server/datadir"
+      - "./logs:/opt/teamcity/logs"
+
+    restart: always
+    container_name: teamcity_server

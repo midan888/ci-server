@@ -1,0 +1,14 @@
+services:
+  vpn:
+    image: jpetazzo/dockvpn
+
+    ports:
+      - "0.0.0.0:1194:1194/udp"
+      - "0.0.0.0:443:443"
+
+    volumes:
+      - ./openvpn:/etc/openvpn
+
+    privileged: true
+    restart: always
+    container_name: vpn
