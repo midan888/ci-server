@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  teamcity-agent:
+    build: './'
+
+    volumes:
+      - "./data:/data/teamcity_server/datadir"
+      - "./logs:/opt/teamcity/logs"
+    environment:
+    - AGENT_NAME=node-agent
+    - SERVER_URL=http://localhost
+
+    restart: always
+    container_name: teamcity_agent
